@@ -132,7 +132,7 @@ img.selected {
 /*  捐赠横幅样式 - 复古街机 - 极小尺寸版  */
 .donation-banner {
     position: fixed;
-    top: 80%;                      /*  ✅  捐赠横幅 top 调整到 80% */
+    top: 60%;                      /*  ✅  捐赠横幅 top 调整到 60% */
     right: 15px;                   /*  ✅  捐赠横幅 right 调整到 15px */
     background-color: #333;
     border: 3px solid #fff;         /*  ✅  捐赠横幅边框减细到 3px */
