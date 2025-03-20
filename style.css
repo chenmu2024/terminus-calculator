@@ -1,11 +1,11 @@
-/*  方案四：复古街机 (Retro Arcade)  */
+/*  方案九：复古街机 - 超小字体版 (Retro Arcade - Extra Small Font Size)  */
 
-/*  引入 Press Start 2P 字体  */
+/*  引入 Press Start 2P 字体 (无需重复引入，如果之前已引入)  */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
-    font-family: 'Press Start 2P', monospace; /*  ✅  更换字体为 Press Start 2P  */
-    background-color: #000080;      /*  ✅  深蓝色背景  */
+    font-family: 'Press Start 2P', monospace;
+    background-color: #000080;
     margin: 0 auto;
     max-width: 960px;
     overflow: hidden;
@@ -15,151 +15,171 @@ body {
     align-items: center;
     justify-content: flex-end;
     height: 100vh;
-    color: #fff;                   /*  ✅  白色文本  */
-    text-shadow: 2px 2px 0 #000;    /*  ✅  黑色文字阴影，增强像素感  */
+    color: #fff;
+    /*  CRT 扫描线效果 (Scanlines Effect)  */
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0));
+    background-size: 100% 4px;
 }
 
 h1, h2, h3 {
-    color: #ffff00;                /*  ✅  亮黄色标题  */
-    text-shadow: 2px 2px 0 #000;    /*  ✅  黑色文字阴影  */
+    color: #ffff00;
+    text-shadow: 2px 2px 0 #000;
 }
 
 h1 {
     margin-bottom: 1.5vh;
-    font-size: 2.8rem;              /*  更大像素字体  */
+    font-size: 2.2rem;              /*  ✅  标题字体进一步减小 */
     text-align: center;
-    letter-spacing: 0.1em;         /*  增加字符间距，像素风更明显  */
+    letter-spacing: 0.15em;
+    line-height: 1.1;
 }
 
 h2 {
-    margin-bottom: 20px;
-    font-size: 1.6rem;
+    margin-bottom: 25px;
+    font-size: 1.4rem;              /*  ✅  二级标题字体进一步减小 */
     text-align: center;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
 }
 
 .variable {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     display: flex;
     text-align: center;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 .image-option {
     cursor: pointer;
-    margin: 5px;
+    margin: 8px;
     display: inline-block;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background-color 0.2s;
-    border: 4px solid #fff;         /*  ✅  白色粗边框  */
-    border-radius: 10px;           /*  圆角  */
-    background-color: #333;        /*  深灰色背景  */
+    transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out, border-color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+    border: 4px solid #fff;
+    border-radius: 12px;
+    background-color: #333;
+    transform-style: preserve-3d;
+    perspective: 500px;
 }
 
 img {
-    width: 70px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
     object-fit: cover;
-    border: none;                   /*  去除图片边框  */
-    border-radius: 6px;            /*  图片圆角  */
+    border: none;
+    border-radius: 8px;
 }
 
 img.selected {
-    border: 4px solid #ff0000;      /*  ✅  红色粗边框  */
-    background-color: rgba(255, 0, 0, 0.2); /*  ✅   हल्का红色背景  */
-    box-shadow: none;               /*  去除阴影，更像素风  */
+    border: 4px solid #ff0000;
+    background-color: rgba(255, 0, 0, 0.3);
+    box-shadow: none;
 }
 
 .image-option:hover {
-    transform: scale(1.05);
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /*  增加像素风格阴影  */
+    transform: scale(1.08);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+.image-option:active {
+    transform: translateY(4px);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.6);
+    background-color: #555;
 }
 
 #results {
-    margin-top: 20px;
-    padding: 15px 20px;
-    background-color: #222;         /*  ✅  更深灰色结果区背景  */
-    border-radius: 10px;
-    border: 4px solid #fff;         /*  ✅  白色粗边框  */
+    margin-top: 25px;
+    padding: 18px 25px;
+    background-color: #222;
+    border-radius: 12px;
+    border: 4px solid #fff;
     text-align: center;
     width: 100%;
     max-width: 600px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /*  增加像素风格阴影  */
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
 }
 
 #results h3 {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-    color: #ffff00;                /*  ✅  亮黄色标题  */
-    text-shadow: 2px 2px 0 #000;    /*  ✅  黑色文字阴影  */
+    margin-bottom: 12px;
+    font-size: 1.2rem;              /*  ✅  结果标题字体进一步大幅减小 */
+    color: #ffff00;
+    text-shadow: 2px 2px 0 #000;
+    line-height: 1.2;
 }
 
 #results p {
-    margin: 5px 0;
-    font-size: 1.2rem;
-    color: #fff;                   /*  ✅  白色结果文本  */
-    text-shadow: 1px 1px 0 #000;    /*  ✅  हल्का黑色文字阴影  */
+    margin: 6px 0;
+    font-size: 0.9rem;              /*  ✅  结果文本字体进一步大幅减小 */
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+    line-height: 1.4;
 }
 
 #results strong {
-    color: #00ff00;                /*  ✅  绿色突出结果数值  */
-    text-shadow: 1px 1px 0 #000;    /*  ✅  हल्का黑色文字阴影  */
+    color: #00ff00;
+    text-shadow: 1px 1px 0 #000;
 }
 
 .footer {
-    margin-top: 2vh;
+    margin-top: 3vh;
     margin-bottom: 5vh;
     text-align: center;
-    font-size: 0.8rem;
-    color: #ccc;                   /*   हल्का灰色页脚文本  */
-    text-shadow: 1px 1px 0 #000;    /*  ✅  हल्का黑色文字阴影  */
+    font-size: 0.9rem;
+    color: #ccc;
+    text-shadow: 1px 1px 0 #000;
 }
 
-/*  捐赠横幅样式 -  调整为复古街机风格  */
+/*  捐赠横幅样式 - 复古街机 - 超小字体版  */
 .donation-banner {
     position: fixed;
-    top: 70%;
+    top: 75%;
     right: 20px;
-    background-color: #333;         /*  ✅  深灰色背景  */
-    border: 4px solid #fff;         /*  ✅  白色粗边框  */
+    background-color: #333;
+    border: 4px solid #fff;
     border-radius: 10px;
-    padding: 10px;
-    width: 200px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /*  增加像素风格阴影  */
+    padding: 12px;
+    width: 210px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     z-index: 1000;
-    color: #fff;                   /*  ✅  白色文本  */
-    text-shadow: 1px 1px 0 #000;    /*  ✅  हल्का黑色文字阴影  */
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
 }
 
 .donation-banner .close-banner {
-    color: #ffff00;                /*  ✅  亮黄色关闭按钮  */
-    text-shadow: 1px 1px 0 #000;    /*  ✅  हल्का黑色文字阴影  */
+    color: #ffff00;
+    text-shadow: 1px 1px 0 #000;
+    font-size: 1.4rem;
 }
 
 .donation-banner .close-banner:hover {
-    color: #ff0000;                /*  ✅  红色 hover 效果  */
-    text-shadow: 1px 1px 0 #000;    /*  ✅  हल्का黑色文字阴影  */
+    color: #ff0000;
+    text-shadow: 1px 1px 0 #000;
 }
 
 .donation-banner h3 {
-    color: #ffff00;                /*  ✅  亮黄色标题  */
-    text-shadow: 2px 2px 0 #000;    /*  ✅  黑色文字阴影  */
+    color: #ffff00;
+    text-shadow: 2px 2px 0 #000;
+    font-size: 1.2rem;
 }
 
 .donation-banner p {
-    color: #fff;                   /*  ✅  白色段落文本  */
-    text-shadow: 1px 1px 0 #000;    /*  ✅  हल्का黑色文字阴影  */
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+    font-size: 0.9rem;
 }
 
 .donation-banner a {
-    background-color: #ffff00;      /*  ✅  亮黄色链接背景  */
-    color: #000;                   /*  ✅  黑色链接文本  */
-    border: 2px solid #000;         /*  黑色边框  */
+    background-color: #ffff00;
+    color: #000;
+    border: 2px solid #000;
+    font-size: 1rem;
+    padding: 8px 15px;
+    border-radius: 8px;
 }
 
 .donation-banner a:hover {
-    background-color: #ff0000;      /*  ✅  红色 hover 效果  */
-    color: #fff;                   /*  ✅  白色链接文本  */
-    border-color: #fff;             /*  白色边框 hover  */
+    background-color: #ff0000;
+    color: #fff;
+    border-color: #fff;
 }
