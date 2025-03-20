@@ -125,7 +125,7 @@ img.selected {
     margin-bottom: 3vh;             /*  ✅  footer margin-bottom 减小到 3vh */
     text-align: center;
     font-size: 0.7rem;              /*  ✅  footer 字体减小到 0.7rem */
-    color: #ccc;
+    color: #fff;
     text-shadow: 1px 1px 0 #000;
 }
 
